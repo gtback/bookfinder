@@ -3,15 +3,15 @@ let ibBaseUrl = "https://www.indiebound.org/book/";
 
 getISBN = function () {
   isbnTag = null;
-  for (elem of document.querySelectorAll("b")) {
+  for (elem of document.querySelectorAll(".detail-bullet-label")) {
     // If there is at least one of these, we'll be able to search by it.
-    if (elem.innerText === "ISBN-10:" || elem.innerText === "ISBN-13:") {
+    if (elem.innerText.startsWith("ISBN-")) {
       isbnTag = elem;
       break;
     }
   }
   if (isbnTag != null) {
-    return isbnTag.nextSibling.nodeValue.trim();
+    return isbnTag.nextElementSibling.innerText.trim();
   }
 };
 
@@ -72,6 +72,7 @@ function main() {
   isbn = getISBN();
   if (isbn == null) {
     // Not a book
+    console.log("No book found");
     return;
   }
 
