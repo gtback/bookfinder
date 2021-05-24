@@ -3,15 +3,15 @@ let ibBaseUrl = "https://www.indiebound.org/book/";
 
 getISBN = function () {
   isbnTag = null;
-  for (elem of document.querySelectorAll(".detail-bullet-label")) {
-    // If there is at least one of these, we'll be able to search by it.
+  for (elem of document.querySelectorAll(".a-list-item")) {
+    // Generally, the ISBN-13 tag will be last, so we keep looping and return
+    // the last one found.
     if (elem.innerText.startsWith("ISBN-")) {
       isbnTag = elem;
-      break;
     }
   }
   if (isbnTag != null) {
-    return isbnTag.nextElementSibling.innerText.trim();
+    return isbnTag.lastElementChild.innerText.trim();
   }
 };
 
