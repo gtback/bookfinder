@@ -32,7 +32,7 @@ web-ext run
 
 web-ext lint
 
-web-ext build
+web-ext build --ignore-files "*.png"
 ```
 
 For now I've been manually uploading the extension to addons.mozilla.org rather
