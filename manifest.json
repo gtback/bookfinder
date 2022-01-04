@@ -4,7 +4,8 @@
   "version": "0.1.2",
   "permissions": [
     "https://www.barnesandnoble.com/s/*",
-    "https://www.indiebound.org/book/*"
+    "https://www.indiebound.org/book/*",
+    "https://bookshop.org/books/*"
   ],
   "content_scripts": [
     {

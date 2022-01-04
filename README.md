@@ -5,10 +5,11 @@ Web Extension to add links to other bookstores on Amazon product pages.
 Amazon is by far the most popular way people share links to books. This
 extension makes it easy to go from books on Amazon to the same book on other sites. Currently supported sites are:
 
-- Barnes and Noble
-- IndieBound
+- [Barnes and Noble](https://www.barnesandnoble.com/)
+- [IndieBound](https://www.indiebound.org/)
+- [Bookshop.org](https://bookshop.org//)
 
-NOTE: This only works for US domains for now.
+NOTE: This only works for Amazon's US domains for now.
 
 **Screenshot**:
 

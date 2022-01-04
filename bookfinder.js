@@ -1,6 +1,3 @@
-let bnBaseUrl = "https://www.barnesandnoble.com/s/";
-let ibBaseUrl = "https://www.indiebound.org/book/";
-
 getISBN = function () {
   isbnTag = null;
   for (elem of document.querySelectorAll(".a-list-item")) {
@@ -16,8 +13,9 @@ getISBN = function () {
 };
 
 getBNUrl = async function (isbn) {
+  url = `https://www.barnesandnoble.com/s/${isbn}`;
   return window
-    .fetch(bnBaseUrl + isbn)
+    .fetch(url)
     .then((response) => {
       // This will redirect you to a page for this ISBN, or a URL containing
       // "noresults" if nothing was found.
@@ -31,8 +29,9 @@ getBNUrl = async function (isbn) {
 };
 
 getIBUrl = async function (isbn) {
+  url = `https://www.indiebound.org/book/${isbn}`;
   return window
-    .fetch(ibBaseUrl + isbn)
+    .fetch(url)
     .then((response) => {
       /// This returns a 200 if the book exists, otherwise a 404.
       if (response.ok) {
@@ -42,6 +41,38 @@ getIBUrl = async function (isbn) {
     })
     .catch((error) => console.log(error));
 };
+
+getBookshopUrl = async function (isbn) {
+  // Bookshop requires the ISBN to not contain any hyphens.
+  isbn = isbn.replace("-", "");
+  // Bookshop uses the part of the URL path component with `fake-slug` to put a
+  // human-readable slug of the book's title. We don't want to try to guess what
+  // it is, but we can pull out the canonical URL from the response if it's a
+  // 200 OK.
+  url = `https://bookshop.org/books/fake-slug/${isbn}`;
+  return window
+    .fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+      throw new Error("Bookshop returned a non-OK response")
+    })
+    .then((responseText) => {
+      // Parse the HTML of the response in order to get the element with the
+      // canonical link: `<link rel="canonical" ...`.
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(responseText, "text/html");
+      canonicalUrl = doc.querySelector("link[rel='canonical']").href;
+
+      return canonicalUrl;
+    })
+    .catch(function (error) {
+      // Usually, this error will be the one we threw above.
+      // console.log(error)
+      return null;
+    });
+}
 
 addMargin = function (node) {
   node.style.marginRight = "20px";
@@ -94,8 +125,9 @@ function main() {
 
   bn = getBNUrl(isbn).then((url) => getLink(url, "Barnes and Noble"));
   ib = getIBUrl(isbn).then((url) => getLink(url, "IndieBound"));
+  bookshop = getBookshopUrl(isbn).then((url) => getLink(url, "Bookshop.org"));
 
-  Promise.all([bn, ib]).then((values) => {
+  Promise.all([bn, ib, bookshop]).then((values) => {
     bookFinderBanner.removeChild(loading);
     values.forEach((node) => bookFinderBanner.insertBefore(node, null));
   });

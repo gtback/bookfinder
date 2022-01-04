@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Check whether books are available at Bookshop.org.
+
 ### Fixed
 
 - More forgiving HTML parsing: don't error on list items without inner text.
