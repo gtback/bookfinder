@@ -15,6 +15,8 @@ NOTE: This only works for Amazon's US domains for now.
 
 ![Bookfinder on Amazon](bookfinder.png)
 
+(*from [this page](https://www.amazon.com/Oh-Places-Youll-Dr-Seuss/dp/0679805273)*).
+
 ## Installation
 
 Install from [addons.mozilla.org][amo].
