@@ -74,6 +74,24 @@ getBookshopUrl = async function (isbn) {
     });
 }
 
+getBooksioURL = async function (isbn) {
+  // http https://www.booksio.com/search/ajax/suggest/?q=9781984881014 | jq '.[0].url'
+  let cleanIsbn = isbn.replace("-", "");
+  url = `https://www.booksio.com/search/ajax/suggest/?q=${cleanIsbn}`
+  return window
+    .fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        let data = response.json();
+        return data
+      }
+    })
+    .then((data) => {
+      return data[0].url;
+    })
+    .catch((error) => console.log(error));
+};
+
 addMargin = function (node) {
   node.style.marginRight = "20px";
   return node;
@@ -126,8 +144,9 @@ function main() {
   bn = getBNUrl(isbn).then((url) => getLink(url, "Barnes and Noble"));
   ib = getIBUrl(isbn).then((url) => getLink(url, "IndieBound"));
   bookshop = getBookshopUrl(isbn).then((url) => getLink(url, "Bookshop.org"));
+  booksio = getBooksioURL(isbn).then((url) => getLink(url, "Booksio"));
 
-  Promise.all([bn, ib, bookshop]).then((values) => {
+  Promise.all([bn, ib, bookshop, booksio]).then((values) => {
     bookFinderBanner.removeChild(loading);
     values.forEach((node) => bookFinderBanner.insertBefore(node, null));
   });

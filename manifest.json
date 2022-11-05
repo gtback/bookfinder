@@ -5,7 +5,8 @@
   "permissions": [
     "https://www.barnesandnoble.com/s/*",
     "https://www.indiebound.org/book/*",
-    "https://bookshop.org/books/*"
+    "https://bookshop.org/books/*",
+    "https://www.booksio.com/*"
   ],
   "content_scripts": [
     {

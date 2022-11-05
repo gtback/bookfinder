@@ -7,7 +7,8 @@ extension makes it easy to go from books on Amazon to the same book on other sit
 
 - [Barnes and Noble](https://www.barnesandnoble.com/)
 - [IndieBound](https://www.indiebound.org/)
-- [Bookshop.org](https://bookshop.org//)
+- [Bookshop.org](https://bookshop.org/)
+- [Booksio](https://www.booksio.com/)
 
 NOTE: This only works for Amazon's US domains for now.
 

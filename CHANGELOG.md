@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Check whether books are available at Booksio.
+
 ## [0.2.0] - 2022-01-03
 
 ### Added
