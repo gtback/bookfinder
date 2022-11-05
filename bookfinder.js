@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Greg Back <git@gregback.net>
+// SPDX-License-Identifier: MIT
+
 getISBN = function () {
   isbnTag = null;
   for (elem of document.querySelectorAll(".a-list-item")) {

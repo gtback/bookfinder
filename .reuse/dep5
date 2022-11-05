@@ -1,0 +1,12 @@
+Format: <https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/>
+Upstream-Name: bookfinder
+Upstream-Contact: Greg Back <git@gregback.net>
+Source: <https://github.com/gtback/bookfinder>
+
+Files: bookfinder.png
+Copyright: 2022 Greg Back <git@gregback.net>
+License: CC-BY-SA-4.0
+
+Files: manifest.json
+Copyright: 2022 Greg Back <git@gregback.net>
+License: MIT

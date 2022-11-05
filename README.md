@@ -1,3 +1,7 @@
+<!--
+SPDX-FileCopyrightText: 2022 Greg Back <git@gregback.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 # bookfinder
 
 Web Extension to add links to other bookstores on Amazon product pages.
