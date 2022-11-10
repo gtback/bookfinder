@@ -24,9 +24,9 @@ NOTE: This only works for Amazon's US domains for now.
 
 ## Installation
 
-Install from [addons.mozilla.org][amo].
+[Install] from `addons.mozilla.org`.
 
-[amo]: https://addons.mozilla.org/en-US/firefox/addon/bookfinder/
+[Install]: https://addons.mozilla.org/en-US/firefox/addon/bookfinder/
 
 ## Developing
 
@@ -43,5 +43,5 @@ web-ext lint
 web-ext build --ignore-files "*.png"
 ```
 
-For now I've been manually uploading the extension to addons.mozilla.org rather
-than trying to set up `web-ext sign`.
+For now I've been manually uploading the extension to `addons.mozilla.org`
+rather than trying to set up `web-ext sign`.
