@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Check whether books are available at Booksio.
 
+### Removed
+
+- Support for Indiebound. Bookshop.org [now handles](https://bookshop.org/info/indiebound-redirect) Indiebound direct orders.
+
 ## [0.2.0] - 2022-01-03
 
 ### Added

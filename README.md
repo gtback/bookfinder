@@ -10,7 +10,6 @@ Amazon is by far the most popular way people share links to books. This
 extension makes it easy to go from books on Amazon to the same book on other sites. Currently supported sites are:
 
 - [Barnes and Noble](https://www.barnesandnoble.com/)
-- [IndieBound](https://www.indiebound.org/)
 - [Bookshop.org](https://bookshop.org/)
 - [Booksio](https://www.booksio.com/)
 

@@ -31,20 +31,6 @@ getBNUrl = async function (isbn) {
     .catch((error) => console.log(error));
 };
 
-getIBUrl = async function (isbn) {
-  url = `https://www.indiebound.org/book/${isbn}`;
-  return window
-    .fetch(url)
-    .then((response) => {
-      /// This returns a 200 if the book exists, otherwise a 404.
-      if (response.ok) {
-        return response.url;
-      }
-      return null;
-    })
-    .catch((error) => console.log(error));
-};
-
 getBookshopUrl = async function (isbn) {
   // Bookshop requires the ISBN to not contain any hyphens.
   isbn = isbn.replace("-", "");
@@ -145,11 +131,10 @@ function main() {
   mainContent.insertBefore(bookFinderBanner, mainContent.firstChild);
 
   bn = getBNUrl(isbn).then((url) => getLink(url, "Barnes and Noble"));
-  ib = getIBUrl(isbn).then((url) => getLink(url, "IndieBound"));
   bookshop = getBookshopUrl(isbn).then((url) => getLink(url, "Bookshop.org"));
   booksio = getBooksioURL(isbn).then((url) => getLink(url, "Booksio"));
 
-  Promise.all([bn, ib, bookshop, booksio]).then((values) => {
+  Promise.all([bn, bookshop, booksio]).then((values) => {
     bookFinderBanner.removeChild(loading);
     values.forEach((node) => bookFinderBanner.insertBefore(node, null));
   });

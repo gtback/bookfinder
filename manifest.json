@@ -4,7 +4,6 @@
   "version": "0.2.0",
   "permissions": [
     "https://www.barnesandnoble.com/s/*",
-    "https://www.indiebound.org/book/*",
     "https://bookshop.org/books/*",
     "https://www.booksio.com/*"
   ],
